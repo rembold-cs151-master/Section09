@@ -1,2 +1,2 @@
-# section_template
-A template file for generating slides and content for a section meeting
+# Section 09 
+Template resources for problems for Section 09, dealing with ImageShop problems.
