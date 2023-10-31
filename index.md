@@ -15,8 +15,9 @@ css:
 
 
 ## Adding Commands to ImageShop
+- When you download the starter template for ImageShop, it already implements the viewing area along with the **Load** and **Flip Vertical** buttons.
+
 :::incremental
-- When you download the starter template for ImageShop, it already implements the viewing area along wit hthe **Load** and **Flip Vertical** buttons.
 - To add a new command to ImageShop, you need to add code to accomplish the following steps:
   - Add a new callback function that handles the click action for the button.
   - Add the new button to the window.
@@ -72,7 +73,45 @@ def correct_red_eye(image):
 ```
 
 
-## Problem 2: Scaling an Image
+## Problem 2: Doubling an Image
+- Another common image transformation is that of scaling, where the image is made either larger or smaller
+- When doing so, there is always a mismatch in the number of pixels in the larger vs the smaller image that needs to be resolved
+- Enlarging an image by a factor of 2 means copying the same pixel from the smaller image 4 times into the larger images
+- Your task here is to add a button called **Double** which will double the current size of an image.
+
+## Doubling: A Visual
+
+![](./images/enlarge.svg)
+
+## Doubling Steps
+- Accomplishing this task thus means:
+  - Creating a new 2D array of the desired dimensions
+  - Looping over the original image pixels
+  - Copying each pixel value to its four new locations in the new array
+    - How do you determine the rows and columns of these new locations?
+    - Draw yourself a picture!
+    - Work through a few examples (Where does the (0,0) pixel need to go? What about the (1,0) pixel?) to work out the pattern.
+
+
+## Doubling Solution
+```{.mypython style='max-height:800px; font-size:.8em;'}
+def double_image(image):
+    array = image.get_pixel_array()
+    height = len(array)
+    width = len(array[0])
+    new_array = [ 
+          [0 for c in range(width * 2)] for r in range(height * 2)
+      ]
+    for r in range(height):
+        for c in range(width):
+            pixel = array[r][c]
+            new_array[2*r][2*c] = pixel
+            new_array[2*r][2*c+1] = pixel
+            new_array[2*r+1][2*c+1] = pixel
+            new_array[2*r+1][2*c] = pixel
+    return GImage(new_array)
+```
+
 
 
 
@@ -80,10 +119,11 @@ def correct_red_eye(image):
 
 
 ## Problem 3: Cumulative Histograms
-:::incremental
 - Write a function
   `def create_cumulative_histogram(hist)`{.mypython .inlinecode}
   that takes a histogram array `hist` and returns a new array in which each value in an index represents the sum of all values in `hist` up to and including that index.
+
+:::incremental
 - This new array is called the _cumulative histogram_.
 - In solving this problem, you should refer back to the histogram problem you wrote for Problem Set 5 for the definition of the histogram array. In particular, you can use the function `create_histogram_array` to create a histogram array to feed into `create_cumulative_histogram`.
 :::
@@ -142,4 +182,32 @@ def create_cumulative_histogram(hist):
     number of values less than or equal to k in the original sample.
     """
     return [ sum(hist[:i + 1]) for i in range(len(hist)) ]
+```
+
+## Optional Problem: Overlay
+- Implement an **Overlay** button for ImageShop that creates a new picture by interleaving the pixels from the current image and an image loaded from a file.
+- In the new image, pixels come from the current image if the sum of the row and column is even, and from the loaded image if that sum is odd.
+- If you use overlay to combine Starry Night with the image of Earth, you get the following image:
+  ![](./images/starryearth.png)
+- Note that these images are not the same size, so you need to account for that!
+
+
+## Overlay Solution:
+```{.mypython style='font-size:.8em; max-height:850px;'}
+def overlay(image):
+    # Get the second image
+    filename = choose_input_file()
+    if filename != "":
+        image2 = GImage(filename)
+
+    # Process
+    array1 = image.get_pixel_array()
+    array2 = image2.get_pixel_array()
+    min_height = min(len(array1), len(array2))
+    min_width = min(len(array1[0]), len(array2[0]))
+    for r in range(min_height):
+        for c in range(min_width):
+            if (r + c) % 2 == 1:
+                array1[r][c] = array2[r][c]
+    return GImage(array1)
 ```
