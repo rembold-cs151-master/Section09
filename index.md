@@ -14,7 +14,72 @@ css:
 ---
 
 
-## Problem 1
+## Adding Commands to ImageShop
+:::incremental
+- When you download the starter template for ImageShop, it already implements the viewing area along wit hthe **Load** and **Flip Vertical** buttons.
+- To add a new command to ImageShop, you need to add code to accomplish the following steps:
+  - Add a new callback function that handles the click action for the button.
+  - Add the new button to the window.
+  - Implement the image transformation function.
+- These code fragments appear in different parts of the program, but you can use **Flip Vertical** as a guide illustrating what you need to do.
+:::
+
+## Problem 1: Correct the Red-Eye Effect
+::::::{.cols style='align-items: center'}
+::::col
+- When you take a picture of a face, the light from the flash often reflects off the blood vessels in the retina, making the pupils of the eye appear bright red. This phenomenon is called the _red-eye effect_ and looks like the image to the right.
+- This effect is generally unwanted, and thus a common operation is to try to remove it.
+
+::::
+
+::::col
+
+:::r-stack
+
+![](./images/RedEyeCat.png){width=100%}
+
+![](./images/CorrectedCat.png){.fragment width=100%}
+
+:::
+
+::::
+::::::
+
+## The Red-Eye Operation
+- Your job in this problem is to implement a **Red Eye** button that:
+  - Goes through each pixel checking to see if it is overly red
+    - "Overly red" here is if the red component is at least twice the max of the blue and green components
+  - If a pixel is overly red, replace it with a pixel where the red component has been lowered to equal the max of the blue and green components
+
+
+## Red-Eye Corrected
+```{.mypython style='max-height:800px; font-size:.8em;'}
+def correct_red_eye(image):
+    """Creates a new GImage that reduces the red-eye effect."""
+    array = image.get_pixel_array()
+    height = len(array)
+    width = len(array[0])
+    for r in range(height):
+        for c in range(width):
+            pixel = array[r][c]
+            rr = GImage.get_red(pixel)
+            gg = GImage.get_green(pixel)
+            bb = GImage.get_blue(pixel)
+            if rr >= 2 * max(gg, bb):
+                rr = max(gg, bb)
+            array[r][c] = GImage.create_rgb_pixel(rr, gg, bb)
+    return GImage(array)
+```
+
+
+## Problem 2: Scaling an Image
+
+
+
+
+
+
+## Problem 3: Cumulative Histograms
 :::incremental
 - Write a function
   `def create_cumulative_histogram(hist)`{.mypython .inlinecode}
