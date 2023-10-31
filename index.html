@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Jed Rembold and Eric Roberts">
-  <title>Title</title>
+  <title>Section 09: ImageShop</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -36,16 +36,84 @@
     <div class="slides">
 
 <section id="title-slide">
-  <h1 class="title">Title</h1>
+  <h1 class="title">Section 09: ImageShop</h1>
   <p class="author">Jed Rembold and Eric Roberts</p>
-  <p class="date">Date</p>
+  <p class="date">Week of October 30th</p>
 </section>
 
 <section id="problem-1" class="slide level2">
 <h2>Problem 1</h2>
+<div>
 <ul>
-<li>Is here!</li>
+<li class="fragment">Write a function
+<code class="mypython inlinecode">def create_cumulative_histogram(hist)</code>
+that takes a histogram array <code class="python">hist</code> and
+returns a new array in which each value in an index represents the sum
+of all values in <code class="python">hist</code> up to and including
+that index.</li>
+<li class="fragment">This new array is called the <em>cumulative
+histogram</em>.</li>
+<li class="fragment">In solving this problem, you should refer back to
+the histogram problem you wrote for Problem Set 5 for the definition of
+the histogram array. In particular, you can use the function
+<code class="python">create_histogram_array</code> to create a histogram
+array to feed into
+<code class="python">create_cumulative_histogram</code>.</li>
 </ul>
+</div>
+</section>
+<section id="example-cumulative-histogram" class="slide level2">
+<h2>Example: Cumulative Histogram</h2>
+<ul>
+<li><p>As an example, suppose that you have executed the following
+lines:</p>
+<pre ><code class="mypython">SCORES = [ 8, 7, 8, 6, 8, 10, 4, 9, 6, 9, 7, 8 ]
+histogram_array = create_histogram_array(11, SCORES)</code></pre>
+<p>using <code class="python">create_histogram_array</code> as you
+implemented it for PS5 to create the following histogram array:</p>
+<p><img
+data-src="./images/svg_cache/041ff927de59f20851fcc75b48785cd6a06a9b82.svg"
+style="width:70.0%" /></p></li>
+<li><p>The corresponding cumulative histogram should look then like:</p>
+<p><img
+data-src="./images/svg_cache/80d8662fbd42aa6ff78b4959aff6aa2f590530ee.svg"
+style="width:70.0%" /></p></li>
+</ul>
+</section>
+<section id="solution-1-keeping-a-running-total" class="slide level2">
+<h2>Solution 1: Keeping a Running Total</h2>
+<pre ><code class="mypython" style="font-size:.8em; max-height: 800px;">def create_cumulative_histogram(hist):
+    """
+    Returns the cumulative histogram corresponding to the histogram
+    array hist.  Index k in the cumulative histogram indicates the
+    number of values less than or equal to k in the original 
+    sample.
+    """
+    chist = [ 0 for i in range(len(hist)) ]
+    total = 0
+    for i in range(len(hist)):
+        total += hist[i]
+        chist[i] = total
+    return chist</code></pre>
+</section>
+<section id="solution-2-a-pythonic-one-liner" class="slide level2">
+<h2>Solution 2: A Pythonic One-Liner</h2>
+<pre ><code class="mypython" style="font-size:.72em; max-height:850px;"># Implementation notes: create_cumulative_histogram
+# -------------------------------------------------
+# This implementation of create_cumulative_histogram uses the Python
+# features of list comprehension, slicing, and the library sum function
+# to reduce the code to a single line.  Each element in the comprehension
+# is the sum of all the elements at or below that index.  This version
+# performs many more additions than the expanded version because the
+# sum is recomputed each time.
+
+def create_cumulative_histogram(hist):
+    """
+    Returns the cumulative histogram corresponding to the histogram
+    array hist.  Index k in the cumulative histogram indicates the
+    number of values less than or equal to k in the original sample.
+    """
+    return [ sum(hist[:i + 1]) for i in range(len(hist)) ]</code></pre>
 </section>
     </div>
   </div>
@@ -64,9 +132,14 @@
   <!--<script src="./js/revealjs/../other_plugins/reveald3/reveald3.js"></script>,-->
   <script src="./js/revealjs/plugin/math/math.js"></script>
   <script src="./js/revealjs/plugin/highlight/highlight.js"></script>
+  <script src="./js/revealjs/../python_language.js"></script>
+
+  // Font Awesome Characters
+  <script src="https://kit.fontawesome.com/4bc05635b0.js" crossorigin="anonymous"></script>
 
   // Code Tracing
   <script src="./js/revealjs/../codetrace.js"></script>
+
 
   <script>
 
@@ -176,6 +249,11 @@
 		  <!--},-->
 		  CommonHTML: {scale: 80},
 		},
+          highlight: {
+            beforeHighlight: hljs => hljs.registerLanguage("mypython", function(hljs) {
+              console.log(mypythondef);
+              return mypythondef(hljs); } )
+          },
         // reveal.js plugins
         plugins: [
 		  RevealMath,
@@ -214,5 +292,17 @@
 		],
       });
     </script>
+  <script>
+  // This is admitedly a very hacky way to achieve my pseudo code highlighting, but it works?
+    function remove_bars() {
+      var pseudoBlocks = document.getElementsByClassName("hljs-pseudo");
+      console.log(pseudoBlocks);
+      for ( var i = 0; i < pseudoBlocks.length; i++) {
+        pseudoBlocks[i].innerHTML = pseudoBlocks[i].innerHTML.replaceAll("\|\|\|", "");
+      }
+      }
+    // omg this is even more hacky now, but I need this to run after hljs has done its thing
+    setTimeout(remove_bars, 100);
+  </script>
     </body>
 </html>
