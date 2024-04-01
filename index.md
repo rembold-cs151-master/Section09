@@ -1,7 +1,7 @@
 ---
-title: "Section 09: ImageShop"
+title: "Section 10: ImageShop"
 author: Jed Rembold and Eric Roberts
-date: "Week of October 30th"
+date: "Week of April 1st"
 slideNumber: true
 theme: monokai
 highlightjs-theme: monokai
@@ -121,7 +121,9 @@ def double_image(image):
 
 ## Problem 3: Cumulative Histograms
 - Write a function
-  `def create_cumulative_histogram(hist)`{.mypython .inlinecode}
+  ```mypython
+  def create_cumulative_histogram(hist):
+  ```
   that takes a histogram array `hist` and returns a new array in which each value in an index represents the sum of all values in `hist` up to and including that index.
 
 :::incremental

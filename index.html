@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Jed Rembold and Eric Roberts">
-  <title>Section 09: ImageShop</title>
+  <title>Section 10: ImageShop</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -16,11 +16,8 @@
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
+    ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
       width: 0.8em;
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
@@ -36,9 +33,9 @@
     <div class="slides">
 
 <section id="title-slide">
-  <h1 class="title">Section 09: ImageShop</h1>
+  <h1 class="title">Section 10: ImageShop</h1>
   <p class="author">Jed Rembold and Eric Roberts</p>
-  <p class="date">Week of October 30th</p>
+  <p class="date">Week of April 1st</p>
 <div class="titlelinks">
 <a title="Template Repo" href="https://github.com/rembold-cs151-master/Section09"><i class="fa-solid fa-folder-tree"></i></a>
 <a title="Template Zip"  href="https://github.com/rembold-cs151-master/Section09/zipball/master/"><i class="fa-solid fa-file-zipper"></i></a>
@@ -485,12 +482,12 @@ What about the (1,0) pixel?) to work out the pattern.</li>
 <section id="problem-3-cumulative-histograms" class="slide level2">
 <h2>Problem 3: Cumulative Histograms</h2>
 <ul>
-<li>Write a function
-<code class="mypython inlinecode">def create_cumulative_histogram(hist)</code>
-that takes a histogram array <code class="python">hist</code> and
+<li><p>Write a function</p>
+<pre ><code class="mypython">def create_cumulative_histogram(hist):</code></pre>
+<p>that takes a histogram array <code class="python">hist</code> and
 returns a new array in which each value in an index represents the sum
 of all values in <code class="python">hist</code> up to and including
-that index.</li>
+that index.</p></li>
 </ul>
 <div>
 <ul>
