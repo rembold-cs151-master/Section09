@@ -1,2 +1,2 @@
-# Section 09 
-Template resources for problems for Section 09, dealing with ImageShop problems.
+# Section 10 
+Template resources for problems for Section 10, dealing with ImageShop problems.
