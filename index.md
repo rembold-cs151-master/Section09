@@ -1,5 +1,5 @@
 ---
-title: "Section 09: ImageShop"
+title: "Section 10: ImageShop"
 author: Jed Rembold and Eric Roberts
 date: "Week of October 28th"
 slideNumber: true
@@ -121,10 +121,9 @@ def double_image(image):
 
 ## Problem 3: Cumulative Histograms
 - Write a function
-  ```python
-  def create_cumulative_histogram(hist)
+  ```mypython
+  def create_cumulative_histogram(hist):
   ```
-
   that takes a histogram array `hist` and returns a new array in which each value in an index represents the sum of all values in `hist` up to and including that index.
 
 :::incremental
