@@ -1,5 +1,5 @@
 ---
-title: "Section 10: ImageShop"
+title: "Section 9: ImageShop"
 author: Jed Rembold and Eric Roberts
 date: "Week of October 28th"
 slideNumber: true
