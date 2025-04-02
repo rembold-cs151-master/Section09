@@ -1,7 +1,7 @@
 ---
-title: "Section 9: ImageShop"
+title: "Section 10: ImageShop"
 author: Jed Rembold and Eric Roberts
-date: "Week of October 28th"
+date: "Week of March 31st"
 slideNumber: true
 theme: monokai
 highlightjs-theme: monokai
@@ -54,7 +54,7 @@ content_url: https://github.com/rembold-cs151-master/Section09
   - If a pixel is overly red, replace it with a pixel where the red component has been lowered to equal the max of the blue and green components
 
 
-## Red-Eye Corrected
+## Red-Eye Corrected: One Approach
 ```{.mypython style='max-height:800px; font-size:.8em;'}
 def correct_red_eye(image):
     """Creates a new GImage that reduces the red-eye effect."""
@@ -94,7 +94,7 @@ def correct_red_eye(image):
     - Work through a few examples (Where does the (0,0) pixel need to go? What about the (1,0) pixel?) to work out the pattern.
 
 
-## Doubling Solution
+## Doubling: One Solution
 ```{.mypython style='max-height:800px; font-size:.8em;'}
 def double_image(image):
     array = image.get_pixel_array()
@@ -195,7 +195,7 @@ def create_cumulative_histogram(hist):
 - Note that these images are not the same size, so you need to account for that!
 
 
-## Overlay Solution:
+## Overlay: One Solution
 ```{.mypython style='font-size:.8em; max-height:850px;'}
 def overlay(image):
     # Get the second image

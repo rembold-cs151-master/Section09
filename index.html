@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Jed Rembold and Eric Roberts">
-  <title>Section 9: ImageShop</title>
+  <title>Section 10: ImageShop</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -36,9 +36,9 @@
     <div class="slides">
 
 <section id="title-slide">
-  <h1 class="title">Section 9: ImageShop</h1>
+  <h1 class="title">Section 10: ImageShop</h1>
   <p class="author">Jed Rembold and Eric Roberts</p>
-  <p class="date">Week of October 28th</p>
+  <p class="date">Week of March 31st</p>
 <div class="titlelinks">
 <a title="Template Repo" href="https://github.com/rembold-cs151-master/Section09"><i class="fa-solid fa-folder-tree"></i></a>
 <a title="Template Zip"  href="https://github.com/rembold-cs151-master/Section09/zipball/master/"><i class="fa-solid fa-file-zipper"></i></a>
@@ -108,8 +108,8 @@ components</li>
 </ul></li>
 </ul>
 </section>
-<section id="red-eye-corrected" class="slide level2">
-<h2>Red-Eye Corrected</h2>
+<section id="red-eye-corrected-one-approach" class="slide level2">
+<h2>Red-Eye Corrected: One Approach</h2>
 <pre ><code class="mypython" style="max-height:800px; font-size:.8em;">def correct_red_eye(image):
     """Creates a new GImage that reduces the red-eye effect."""
     array = image.get_pixel_array()
@@ -464,8 +464,8 @@ What about the (1,0) pixel?) to work out the pattern.</li>
 </ul></li>
 </ul>
 </section>
-<section id="doubling-solution" class="slide level2">
-<h2>Doubling Solution</h2>
+<section id="doubling-one-solution" class="slide level2">
+<h2>Doubling: One Solution</h2>
 <pre ><code class="mypython" style="max-height:800px; font-size:.8em;">def double_image(image):
     array = image.get_pixel_array()
     height = len(array)
@@ -574,8 +574,8 @@ data-src="./images/starryearth.png" /></li>
 for that!</li>
 </ul>
 </section>
-<section id="overlay-solution" class="slide level2">
-<h2>Overlay Solution:</h2>
+<section id="overlay-one-solution" class="slide level2">
+<h2>Overlay: One Solution</h2>
 <pre ><code class="mypython" style="font-size:.8em; max-height:850px;">def overlay(image):
     # Get the second image
     filename = choose_input_file()
