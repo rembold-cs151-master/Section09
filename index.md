@@ -1,7 +1,7 @@
 ---
 title: "Section 10: ImageShop"
 author: Jed Rembold and Eric Roberts
-date: "Week of March 31st"
+date: "Week of October 27th"
 slideNumber: true
 theme: monokai
 highlightjs-theme: monokai
