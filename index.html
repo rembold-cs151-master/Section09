@@ -4,13 +4,16 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Jed Rembold and Eric Roberts">
-  <title>Section 10: ImageShop</title>
+  <title>Section 9: ImageShop</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="./js/revealjs/dist/reset.css">
   <link rel="stylesheet" href="./js/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -36,7 +39,7 @@
     <div class="slides">
 
 <section id="title-slide">
-  <h1 class="title">Section 10: ImageShop</h1>
+  <h1 class="title">Section 9: ImageShop</h1>
   <p class="author">Jed Rembold and Eric Roberts</p>
   <p class="date">Week of October 27th</p>
 <div class="titlelinks">
@@ -53,7 +56,6 @@
 implements the viewing area along with the <strong>Load</strong> and
 <strong>Flip Vertical</strong> buttons.</li>
 </ul>
-<div>
 <ul>
 <li class="fragment">To add a new command to ImageShop, you need to add
 code to accomplish the following steps:
@@ -67,7 +69,6 @@ action for the button.</li>
 the program, but you can use <strong>Flip Vertical</strong> as a guide
 illustrating what you need to do.</li>
 </ul>
-</div>
 </section>
 <section id="problem-1-correct-the-red-eye-effect" class="slide level2">
 <h2>Problem 1: Correct the Red-Eye Effect</h2>
@@ -492,7 +493,6 @@ returns a new array in which each value in an index represents the sum
 of all values in <code class="python">hist</code> up to and including
 that index.</p></li>
 </ul>
-<div>
 <ul>
 <li class="fragment">This new array is called the <em>cumulative
 histogram</em>.</li>
@@ -503,7 +503,6 @@ the histogram array. In particular, you can use the function
 array to feed into
 <code class="python">create_cumulative_histogram</code>.</li>
 </ul>
-</div>
 </section>
 <section id="example-cumulative-histogram" class="slide level2">
 <h2>Example: Cumulative Histogram</h2>
