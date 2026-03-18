@@ -1,10 +1,10 @@
 ---
 title: "Section 9: ImageShop"
 author: Jed Rembold and Eric Roberts
-date: "Week of October 27th"
+date: "Week of March 16th"
 slideNumber: true
-theme: monokai
-highlightjs-theme: monokai
+theme: python_catppuccin
+highlightjs-theme: catppuccin-mocha
 width: 1920
 height: 1080
 transition: fade
