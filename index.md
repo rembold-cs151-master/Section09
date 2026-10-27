@@ -1,7 +1,7 @@
 ---
 title: "Section 9: ImageShop"
 author: Jed Rembold and Eric Roberts
-date: "Week of March 16th"
+date: "Week of October 26th"
 slideNumber: true
 theme: python_catppuccin
 highlightjs-theme: catppuccin-mocha
@@ -140,13 +140,13 @@ def double_image(image):
   using `create_histogram_array` as you implemented it for PS5 to create the following histogram array:
   \begin{tikzpicture}%%width=70%
   \foreach[count=\i from 0] \v in {0,0,0,0,1,0,2,2,4,2,1} {
-    \node[MBlue, draw, minimum size=1cm, font=\Large, thick, label={[MOrange]below:\i}] at (\i,0) {\v};
+    \node[Blue, draw, minimum size=1cm, font=\Large, thick, label={[Orange]below:\i}] at (\i,0) {\v};
     }
   \end{tikzpicture}
 - The corresponding cumulative histogram should look then like:
   \begin{tikzpicture}%%width=70%
   \foreach[count=\i from 0] \v in {0,0,0,0,1,1,3,5,9,11,12} {
-    \node[MBlue, draw, minimum size=1cm, font=\Large, thick, label={[MOrange]below:\i}] at (\i,0) {\v};
+    \node[Blue, draw, minimum size=1cm, font=\Large, thick, label={[Orange]below:\i}] at (\i,0) {\v};
     }
   \end{tikzpicture}
  
